@@ -1,0 +1,167 @@
+{
+  "metadata": {
+    "description": "Wu et al. 2025 Feature Configuration",
+    "total_features": 92,
+    "original_features": 77,
+    "dummy_features": 13,
+    "derived_features": 2,
+    "selected_features": 21,
+    "target": "fms"
+  },
+  
+  "system_features": {
+    "total": 10,
+    "features": [
+      {
+        "name": "Luminance",
+        "status": "dummy",
+        "range": [50, 800],
+        "unit": "lux",
+        "description": "Scene brightness level"
+      },
+      {
+        "name": "HOG_features",
+        "status": "dummy",
+        "range": [10, 90],
+        "unit": "gradient_magnitude",
+        "description": "Histogram of Oriented Gradients"
+      },
+      {
+        "name": "Spectral_Entropy",
+        "status": "dummy",
+        "range": [0.2, 0.9],
+        "unit": "normalized",
+        "description": "Frequency-domain complexity"
+      },
+      {
+        "name": "Temporal_Smoothness",
+        "status": "dummy",
+        "range": [1, 8],
+        "unit": "frame_difference",
+        "description": "Visual jitter measure"
+      },
+      {
+        "name": "Optical_Flow",
+        "status": "dummy",
+        "range": [-5, 5],
+        "unit": "pixels_per_frame",
+        "description": "Motion vector magnitude"
+      },
+      {
+        "name": "Frame_Rate",
+        "status": "dummy",
+        "range": [60, 120],
+        "unit": "fps",
+        "description": "Display refresh rate"
+      },
+      {
+        "name": "Scene_Complexity",
+        "status": "dummy",
+        "range": [10, 95],
+        "unit": "complexity_score",
+        "description": "Visual scene complexity"
+      },
+      {
+        "name": "Motion_Intensity",
+        "status": "dummy",
+        "range": [0.1, 0.9],
+        "unit": "normalized",
+        "description": "Motion magnitude"
+      },
+      {
+        "name": "Visual_Contrast",
+        "status": "dummy",
+        "range": [0.3, 0.95],
+        "unit": "normalized",
+        "description": "Scene contrast level"
+      },
+      {
+        "name": "FOV",
+        "status": "dummy",
+        "range": [80, 110],
+        "unit": "degrees",
+        "description": "Field of view"
+      }
+    ]
+  },
+  
+  "physiological_features": {
+    "total": 11,
+    "features": [
+      {
+        "name": "HR",
+        "status": "real",
+        "description": "Heart rate from your data"
+      },
+      {
+        "name": "GSR",
+        "status": "real",
+        "description": "Galvanic skin response from your data"
+      },
+      {
+        "name": "Left_Diameter",
+        "status": "real",
+        "description": "Left pupil diameter from your data"
+      },
+      {
+        "name": "Right_Diameter",
+        "status": "real",
+        "description": "Right pupil diameter from your data"
+      },
+      {
+        "name": "Left_Openness",
+        "status": "real",
+        "description": "Left eye openness from your data"
+      },
+      {
+        "name": "Right_Openness",
+        "status": "real",
+        "description": "Right eye openness from your data"
+      },
+      {
+        "name": "Gaze_Error_Angle",
+        "status": "derived",
+        "description": "Calculated from existing gaze data"
+      },
+      {
+        "name": "Reaction_Time",
+        "status": "dummy",
+        "range": [250, 700],
+        "unit": "ms",
+        "description": "Response latency"
+      },
+      {
+        "name": "HRV",
+        "status": "dummy",
+        "range": [20, 80],
+        "unit": "ms_RMSSD",
+        "description": "Heart rate variability"
+      },
+      {
+        "name": "Fixation_Duration",
+        "status": "dummy",
+        "range": [150, 450],
+        "unit": "ms",
+        "description": "Gaze fixation time"
+      },
+      {
+        "name": "Eye_Blink_Rate",
+        "status": "derived",
+        "description": "Calculated from eye openness"
+      }
+    ]
+  },
+  
+  "replacement_instructions": {
+    "note": "When real data becomes available, replace dummy features",
+    "priority_order": [
+      "Luminance",
+      "HOG_features",
+      "Spectral_Entropy",
+      "Temporal_Smoothness",
+      "Reaction_Time",
+      "HRV",
+      "Fixation_Duration"
+    ]
+  }
+}

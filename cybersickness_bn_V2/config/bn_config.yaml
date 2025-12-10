@@ -1,0 +1,16 @@
+structure_learning:
+  algorithm: HillClimbing
+  scoring_method: BDeu
+  max_indegree: 3
+  
+parameter_learning:
+  estimator: BayesianEstimator
+  prior_type: BDeu
+  equivalent_sample_size: 10
+
+hierarchical_constraints:
+  layer1: system_features
+  layer2: physiological_features
+  layer3: target
+
+blacklist_enforcement: true

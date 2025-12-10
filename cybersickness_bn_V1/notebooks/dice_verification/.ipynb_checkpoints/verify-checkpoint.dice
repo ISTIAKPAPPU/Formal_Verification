@@ -1,0 +1,9 @@
+// VR Cybersickness Bayesian Network Verification
+// Auto-generated from pgmpy model
+
+let GSR = discrete(0.20, 0.20, 0.20, 0.20, 0.20) in
+
+let fms = discrete(0.20, 0.20, 0.15, 0.20, 0.15, 0.07, 0.03) in
+
+// Query variable
+fms
