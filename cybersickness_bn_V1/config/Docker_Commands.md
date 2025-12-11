@@ -32,14 +32,14 @@ docker images
 ```python
 from dice_integration_FIXED import DICEVerifier
 
-verifier = DICEVerifier('../models/bn_trained1.pkl', use_docker=True)
+verifier = DICEVerifier('../models/bn_trained_final.pkl', use_docker=True)
 results = verifier.verify_with_dice(evidence=None)
 ```
 
 ### Option 2: Manual Docker Command (Manual Verification)
 ```bash
 # Run DICE directly in Docker container
-docker run --rm -v D:\Formal\Docker_Claude\cybersickness_bn_wu2025\notebooks\dice_verification:/workspace sholtzen/dice dice /workspace/verify.dice
+docker run --rm -v ....\dice_verification:/workspace sholtzen/dice dice /workspace/verify.dice
 ```
 
 ### Option 3: Interactive Shell (For Manual Testing)
@@ -76,10 +76,10 @@ docker logs <container-id>
 
 ## Current Setup
 ```
-✅ Docker version: 28.5.2
-✅ DICE image: sholtzen/dice (5.06GB)
-✅ Status: Ready to use
-✅ Usage: Through Python with use_docker=True
+ Docker version: 28.5.2
+ DICE image: sholtzen/dice (5.06GB)
+ Status: Ready to use
+ Usage: Through Python with use_docker=True
 ```
 
 ## Quick Commands
