@@ -1,4 +1,4 @@
-# Docker Commands Reference for DICE Verification
+# Docker for DICE Verification
 
 ## Installation & Setup
 ```bash
@@ -28,7 +28,7 @@ docker images
 
 ## Running DICE with Docker
 
-### Option 1: Through Python (RECOMMENDED - What You're Using)
+### Option 1: Through Python (RECOMMENDED)
 ```python
 from dice_integration_FIXED import DICEVerifier
 
@@ -74,7 +74,7 @@ docker info
 docker logs <container-id>
 ```
 
-## Your Current Setup
+## Current Setup
 ```
 ✅ Docker version: 28.5.2
 ✅ DICE image: sholtzen/dice (5.06GB)
@@ -82,7 +82,7 @@ docker logs <container-id>
 ✅ Usage: Through Python with use_docker=True
 ```
 
-## Quick Copy-Paste Commands
+## Quick Commands
 
 ### Verify Everything Works
 ```bash
@@ -102,12 +102,12 @@ docker rmi sholtzen/dice
 docker pull sholtzen/dice
 ```
 
-## Your Python Code (What Uses Docker Behind the Scenes)
+## Python Code (What Uses Docker Behind the Scenes)
 ```python
-# This is what you use - Python handles Docker automatically
+
 from dice_integration_FIXED import DICEVerifier
 
-verifier = DICEVerifier('../models/bn_trained1.pkl', use_docker=True)
+verifier = DICEVerifier('../models/bn_trained_final.pkl', use_docker=True)
 
 # Test 1: Baseline
 results = verifier.verify_with_dice(evidence=None)
@@ -119,27 +119,3 @@ comparison = verifier.compare_with_pgmpy({'Motion_Intensity': 4, 'GSR': 5})
 verify_key_properties(model)
 ```
 
-## Notes
-- ⚠️ DON'T use: `docker build -t verify.dice .` (Not needed)
-- ⚠️ DON'T use: Interactive bash commands (Not needed for your use case)
-- ✅ USE: Python code with `use_docker=True` (Automatic and recommended)
-- ✅ Image size: 5.06GB (Normal for DICE with all dependencies)
-
-## Where DICE Actually Runs
-```
-Python Code
-    ↓
-dice_integration_FIXED.py (your module)
-    ↓
-subprocess.run(docker command)
-    ↓
-Docker container starts
-    ↓
-DICE executes inside container
-    ↓
-Results return to Python
-    ↓
-Results displayed in Jupyter
-```
-
-All of this happens automatically when you run: `verifier.verify_with_dice()`
